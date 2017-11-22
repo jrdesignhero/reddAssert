@@ -1,0 +1,58 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ReddAssert | JS Testing Framework</title>
+        <meta name="description" content="JavaScript Testing Framework By James Redd">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Open+Sans:300,400,700,800" rel="stylesheet">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+		<header id="header">
+			<h1 class="header-logo">[ ReddAssert ]</h1>
+		</header>
+		<section class="section-1">
+			<h2 id="ua" class="userAgent">some user agent string</h2>
+		</section>
+		<section class="section-3">
+			<div class="container">
+				<h4 id="tmr" class="time">Test completed in <span id="time-holder">0</span> milliseconds.</h4>
+				 <ol id="ReddAssert"></ol>
+			</div>
+		</section>
+
+        <script src="lib/redd-assert.js"></script>
+		<script>
+			var uiHelpers = {
+				setUserAgent: function () {
+					document.getElementById('ua').innerHTML = "USER AGENT | " + window.navigator.userAgent;
+				},
+				getTime: function (st) {
+					if (st) {
+						start = new Date().getTime();
+						return
+					} else {
+						end = new Date().getTime();
+					}
+					var time = end - start;
+					document.getElementById('time-holder').innerHTML = time;
+				}
+			}
+			uiHelpers.setUserAgent();
+			uiHelpers.getTime(true);
+		</script>
+		<!-- suite dependencies go here -->
+		<script src="../suites/dependencies/user-lib.js"></script>
+
+		<!-- put your test suites here -->
+		<script src="../suites/user.test.js"></script>
+		<!-- end putting your test suites -->
+		<script>uiHelpers.getTime();</script>
+    </body>
+</html>
